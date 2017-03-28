@@ -24,18 +24,19 @@ document.addEventListener('contextmenu', checkForWin);
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin () {
-for (var i = 0; i < board.cells.length; i++) {
-  if(board.cells[i].isMine ===true && board.cells[i].isMarked ===false){
 
-  return
+  for (var i = 0; i < board.cells.length; i++) {
+    if(board.cells[i].isMine ===true && board.cells[i].isMarked===false){
+      return
+    } if (board.cells[i].isMine === false && board.cells[i].hidden===true){
+      return
+    }
+
+    // You can use this function call to declare a winner (once you've
+  // detected that they've won, that is!)
+
   }
-
-   if (board.cells[i].isMine===false && board.cells[i].hidden===true){
-  return
-} else {
   lib.displayMessage('You win!')
-}
-}
 }
 
 //Gets board size from first prompt
