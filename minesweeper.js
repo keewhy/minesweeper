@@ -1,21 +1,13 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-var board ={
-cells: [
-  {row:0 ,col:0,isMine:true, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:0, col:1,isMine:false, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:0, col:2,isMine:true, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:1, col:0,isMine:false, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:1 ,col:1,isMine:true, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:1, col:2,isMine:false, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:2, col:0,isMine:true, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:2, col:1,isMine:false, hidden:true,surroundingMines:0,isMarked:false,},
-  {row:2, col:2,isMine:true, hidden:true,surroundingMines:0,isMarked:false,},
+var boardSize = prompt("What board size would you like to play on? 3 or 6?");
 
-],
+var board ={
+cells:[],
 
 }
+genBoard();
 
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) {
@@ -44,7 +36,39 @@ for (var i = 0; i < board.cells.length; i++) {
   lib.displayMessage('You win!')
 }
 }
-}  // You can use this function call to declare a winner (once you've
+}
+
+//Gets board size from first prompt
+function genBoard(){
+
+for (var i = 0; i < boardSize; i++) {
+  for (var j = 0; j < boardSize; j++) {
+//pushes new properties to board after using the first loop for row and second for columns
+board.cells.push(
+  {
+row:i,
+col:j,
+isMine:randomMines(),
+hidden:true
+}
+
+)
+
+    }
+}
+}
+
+function randomMines(){
+
+  var num = Math.random();
+   if (num < 0.3) {
+   return true;
+   }
+   return false;
+ }
+
+
+ // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
 
 
@@ -73,3 +97,9 @@ function countSurroundingMines (cell) {
     }
 return count;
   }
+
+
+function reset(){
+   document.getElementsByClassName('reset').addEventListener('click' ,location.reload())
+
+}
