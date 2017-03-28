@@ -9,6 +9,7 @@ cells:[],
 }
 genBoard();
 
+
 function startGame () {
   for (var i = 0; i < board.cells.length; i++) {
 board.cells[i].surroundingMines=countSurroundingMines(board.cells[i]) ;
@@ -55,9 +56,10 @@ hidden:true
 
 )
 
-    }
 }
 }
+}
+
 
 function randomMines(){
 
@@ -69,8 +71,6 @@ function randomMines(){
  }
 
 
- // You can use this function call to declare a winner (once you've
-  // detected that they've won, that is!)
 
 
 
@@ -98,9 +98,3 @@ function countSurroundingMines (cell) {
     }
 return count;
   }
-
-
-function reset(){
-   document.getElementsByClassName('reset').addEventListener('click' ,location.reload())
-
-}
