@@ -77,6 +77,49 @@ function randomMines() {
 
 
 
+//Mines for Hard Mode
+
+function hardMines() {
+
+    var num = Math.random();
+    if (num < 0.9) {
+      return true;
+    }
+    return false;
+}
+
+//hardmode
+
+
+
+
+
+  function hardMode(){
+
+    board.cells = []
+    boardSize = 6
+
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 6; j++) {
+            //pushes new properties to board after using the first loop for row and second for columns
+            board.cells.push({
+                    row: i,
+                    col: j,
+                    isMine: hardMines(),
+                    hidden: true
+                }
+
+            )
+
+        }
+    }
+    startGame()
+
+
+    }
+
+
+
 // Define this function to count the number of mines around the cell
 // (there could be as many as 8). You don't have to get the surrounding
 // cells yourself! Just use `lib.getSurroundingCells`:
