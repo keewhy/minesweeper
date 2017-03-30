@@ -36,6 +36,8 @@ body {
 .btn:hover {
     background-color: white;
     color: black;
+} .buttons{
+  display: inline-block;
 }
 
 .board div {
