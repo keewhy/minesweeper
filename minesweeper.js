@@ -82,8 +82,8 @@ function randomMines() {
 function hardMines() {
 
     var num = Math.random();
-    if (num < 0.9) {
-      return true;
+    if (num < 0.6) {
+        return true;
     }
     return false;
 }
@@ -94,10 +94,10 @@ function hardMines() {
 
 
 
-  function hardMode(){
+function hardMode() {
 
     board.cells = []
-    boardSize = 6
+
 
     for (var i = 0; i < 6; i++) {
         for (var j = 0; j < 6; j++) {
@@ -113,10 +113,16 @@ function hardMines() {
 
         }
     }
+
+    //Clear's the current board from the dom then a new board will display with hardmode. Thanks Tony for the help on this.
+    var boardNode = document.getElementsByClassName('board')[0]
+    while (boardNode.firstChild) {
+        boardNode.removeChild(boardNode.firstChild);
+    }
     startGame()
 
 
-    }
+}
 
 
 
