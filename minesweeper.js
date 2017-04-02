@@ -67,7 +67,7 @@ function genBoard() {
 function randomMines() {
 
     var num = Math.random();
-    if (num < 0.3) {
+    if (num < 0.4) {
         return true;
     }
     return false;
@@ -82,7 +82,7 @@ function randomMines() {
 function hardMines() {
 
     var num = Math.random();
-    if (num < 0.6) {
+    if (num < 0.7) {
         return true;
     }
     return false;
